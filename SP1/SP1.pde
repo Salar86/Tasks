@@ -4,12 +4,12 @@ float ballX = 300;
 float ballY = 30;
 float playerX = 300;
 
-//variables to check if key is pressed
+
 boolean leftKey = false;
 boolean rightKey = false;
 boolean spaceBar = false;
 
-boolean dead = true; //show the dead screen, because it's going to be the start screen
+boolean dead = true; //start screen
 
 PImage img;
 
@@ -32,7 +32,7 @@ void draw(){
   if(dead == false){
     background(0);
     image (img,0,0);
-    noStroke(); //remove border
+    noStroke(); 
     fill(255,0,255);//purple
     ellipse(ballX,ballY,50,50);
     stroke(255,255,0);
@@ -40,8 +40,7 @@ void draw(){
     rect(playerX,740,50,50);
     playerMoves();
     moveObject();
-    if(gameOver()){ //checking if game is over
-      //println("You lost");
+    if(gameOver()){ 
       resetObject();
       dead = true;
     }
@@ -51,7 +50,6 @@ void draw(){
   }
 }
 
-//we update the player position if the keys are pressed with this function
 void playerMoves(){
   if(leftKey){
     playerX -= 10; //move left
@@ -67,7 +65,7 @@ void resetObject(){
   
 }
 
-//we want to move the object down
+// moving the ball
 void moveObject(){
   ballY += ballVelocity;
 }
@@ -86,8 +84,6 @@ boolean objectIsTouchingPlayer(){
   return false;
 }
 
-
-//set variables to true when pressed
 void keyPressed(){
   if(keyCode == LEFT){
     leftKey = true;
@@ -100,7 +96,6 @@ void keyPressed(){
   }
 }
 
-//set variables to false when released
 void keyReleased(){
   if(keyCode == LEFT){
     leftKey = false;
